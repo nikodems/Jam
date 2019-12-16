@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelOne : MonoBehaviour
 {
-    public Camera camera;
+    public Camera cam;
 
     List<GameObject> activeTextBox = new List<GameObject>();
 
@@ -34,7 +34,7 @@ public class LevelOne : MonoBehaviour
                 //print("a");
                 int layerMask = 1 << 8;
 
-                Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
                 RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, layerMask);
 

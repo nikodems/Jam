@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18200d782d7f87c4caccc10448543268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1119695339}
+  cam: {fileID: 1119695339}
 --- !u!81 &1119695338
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1185,7 +1185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714413464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.01, y: -1.19, z: -0.1}
+  m_LocalPosition: {x: -2.29, y: -1.19, z: -0.1}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 91596541}
