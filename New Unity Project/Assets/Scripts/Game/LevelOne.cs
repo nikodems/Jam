@@ -54,6 +54,15 @@ public class LevelOne : MonoBehaviour
                     }
                     //SceneManager.LoadSceneAsync("Game");
                 }
+
+                layerMask = 1 << 9;
+
+                hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, layerMask);
+
+                if(hit.collider != null)
+                {
+                    SceneManager.LoadSceneAsync("Game");
+                }
                 //Ensure code runs only once a mouse click
                 heldDown = true;
             }
