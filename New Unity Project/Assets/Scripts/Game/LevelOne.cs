@@ -7,11 +7,14 @@ public class LevelOne : MonoBehaviour
 {
     public Camera camera;
 
+    List<GameObject> activeTextBox = new List<GameObject>();
+
     bool heldDown;
     // Start is called before the first frame update
     void Start()
     {
         heldDown = false;
+        
 
         //Scene game = SceneManager.LoadSceneAsync("Game");
     }
@@ -28,7 +31,7 @@ public class LevelOne : MonoBehaviour
         {
             if (!heldDown)
             {
-                print("a");
+                //print("a");
                 int layerMask = 1 << 8;
 
                 Ray ray = camera.ScreenPointToRay(Input.mousePosition);
@@ -37,8 +40,19 @@ public class LevelOne : MonoBehaviour
 
                 if(hit.collider != null)
                 {
-                    print(hit.collider.ToString());
-                    SceneManager.LoadSceneAsync("Game");
+                    if (!activeTextBox.Contains(hit.collider.gameObject))
+                    {
+                        print(hit.collider.ToString());
+                        hit.collider.gameObject.GetComponent<PlanePart>().ShowTextBox();
+                        activeTextBox.Add(hit.collider.gameObject);
+                    }
+                    else
+                    {
+                        activeTextBox.Remove(hit.collider.gameObject);
+
+                        hit.collider.gameObject.GetComponent<PlanePart>().HideTextBox();
+                    }
+                    //SceneManager.LoadSceneAsync("Game");
                 }
                 //Ensure code runs only once a mouse click
                 heldDown = true;
