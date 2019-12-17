@@ -9,6 +9,7 @@ public class Bomb : MonoBehaviour
 
     bool explode;
     float timer;
+    float rotationZ = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +23,40 @@ public class Bomb : MonoBehaviour
         if(explode)
         {
             timer += Time.deltaTime;
+
+            if (timer > 0.5f)
+            {
+                Destroy(this.gameObject);
+            }
         }
 
-        if(timer > 2.0f)
+        if (!this.gameObject.GetComponent<SpriteRenderer>().flipX)
         {
-            Destroy(this.gameObject);
+            if (this.gameObject.transform.eulerAngles.z < 90)
+            {
+                rotationZ += 1.0f;
+
+                if (rotationZ < 90)
+                {
+                    this.gameObject.transform.Rotate(new Vector3(0.0f, 0.0f, rotationZ));
+                }
+            }
+        }
+        else if(this.gameObject.GetComponent<SpriteRenderer>().flipX)
+        {
+            if (this.gameObject.transform.eulerAngles.z > 270 || this.gameObject.transform.eulerAngles.z == 0)
+            {
+                rotationZ -= 1.0f;
+
+                if (rotationZ > -90.0f)
+                {
+                    this.gameObject.transform.Rotate(new Vector3(0.0f, 0.0f, rotationZ));
+                }
+                else
+                {
+                    rotationZ = -90.0f;
+                }
+            }
         }
     }
 
@@ -35,12 +65,17 @@ public class Bomb : MonoBehaviour
         print("aaa");
         //Destroy(this.gameObject);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = explosionSprite;
-        this.gameObject.transform.localScale = new Vector3(5.0f, 5.0f, 5.0f);
+        this.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         this.gameObject.GetComponent<Rigidbody2D>().simulated = false;
 
-        if(!explode)
+        if (!explode)
         {
             explode = true;
         }
+    }
+
+    public void FlipSprite()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
     }
 }

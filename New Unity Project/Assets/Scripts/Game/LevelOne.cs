@@ -61,7 +61,7 @@ public class LevelOne : MonoBehaviour
 
                 if(hit.collider != null)
                 {
-                    SceneManager.LoadSceneAsync("Game");
+                    SceneManager.LoadSceneAsync("Map");
                 }
                 //Ensure code runs only once a mouse click
                 heldDown = true;

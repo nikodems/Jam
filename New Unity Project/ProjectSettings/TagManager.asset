@@ -19,8 +19,8 @@ TagManager:
   - BorderCollision
   - Plane
   - Tank
-  - 
-  - 
+  - Bomb
+  - MapSelection
   - 
   - 
   - 

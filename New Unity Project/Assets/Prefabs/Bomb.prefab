@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -472411624452965955}
   - component: {fileID: 607608494260351480}
   - component: {fileID: 1611611963751465692}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Bomb
   m_TagString: Bomb
   m_Icon: {fileID: 0}
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 996c310a9847aff4aa39b9bf9d33d8ca, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 4c3ef5b58d640d34eb673c0174dfbdaf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809536de1b89c924db9ad8dea9ae8568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionSprite: {fileID: 21300000, guid: d0a85ce420e7f094c91ecb62afc867d0, type: 3}
+  explosionSprite: {fileID: 21300000, guid: c1862b62b7ec93a48923d4293d7a15cd, type: 3}
 --- !u!61 &607608494260351480
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -109,18 +109,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.07993221, y: 0.12237689}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.2, y: 9}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 5.2, y: 9}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.2, y: 9}
+  m_Size: {x: 2.551818, y: 1.4385512}
   m_EdgeRadius: 0
 --- !u!50 &1611611963751465692
 Rigidbody2D:
