@@ -4,28 +4,47 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    Vector3 velocity = new Vector3(0.0f, -5.0f, 0.0f);
+    Vector3 velocity = new Vector3(5.0f, 0.0f, 0.0f);
     public Sprite explosionSprite;
+    Airplane airPlane;
+
+    public AudioClip explosionClip;
 
     bool explode;
     float timer;
     float rotationZ = 0.0f;
+
+    bool setVelocity = false;
     // Start is called before the first frame update
     void Start()
     {
         explode = false;
+
+        airPlane = GameObject.FindGameObjectWithTag("Player").GetComponent<Airplane>();
+
+        this.gameObject.GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //this.gameObject.transform.position += (velocity * Time.deltaTime);
-        if(explode)
+        if(!setVelocity)
+        {
+            if(!airPlane.IsFlip())
+            {
+                velocity = -velocity;
+            }
+            setVelocity = true;
+        }
+        this.gameObject.transform.position += (velocity * Time.deltaTime);
+
+        if (explode)
         {
             timer += Time.deltaTime;
 
             if (timer > 0.5f)
             {
+                
                 Destroy(this.gameObject);
             }
         }
@@ -62,11 +81,15 @@ public class Bomb : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        velocity = new Vector3(0.0f, 0.0f, 0.0f);
         print("aaa");
         //Destroy(this.gameObject);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = explosionSprite;
         this.gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         this.gameObject.GetComponent<Rigidbody2D>().simulated = false;
+
+        this.gameObject.GetComponent<AudioSource>().clip = explosionClip;
+        this.gameObject.GetComponent<AudioSource>().Play();
 
         if (!explode)
         {

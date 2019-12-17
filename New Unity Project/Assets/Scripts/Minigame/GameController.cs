@@ -20,6 +20,12 @@ public class GameController : MonoBehaviour
 
     public Text missionObjectives;
     public Text missionEnd;
+
+
+    public AudioSource audioSource;
+
+    public AudioClip winClip;
+    public AudioClip startClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,16 +40,19 @@ public class GameController : MonoBehaviour
             SpawnTanks();
         }
 
-        if(Input.GetKeyDown("space") && missionObjectives.gameObject.activeSelf)
+        if(Input.GetKeyDown(KeyCode.Return) && missionObjectives.gameObject.activeSelf)
         {
             HideMissionObjectives();
 
             gameStart = true;
+
+            audioSource.clip = startClip;
+            audioSource.Play();
         }
 
         if(missionEnd.gameObject.activeSelf)
         {
-            if(Input.GetKeyDown("space"))
+            if(Input.GetKeyDown(KeyCode.Return))
             {
                 SceneManager.LoadSceneAsync("Map");
             }
@@ -51,6 +60,10 @@ public class GameController : MonoBehaviour
 
         if(gameOver)
         {
+
+            audioSource.clip = winClip;
+            audioSource.Play();
+
             ShowMissionEnd();
         }
 
@@ -104,6 +117,7 @@ public class GameController : MonoBehaviour
     private void ShowMissionEnd()
     {
         missionEnd.gameObject.SetActive(true);
+
     }
 
     private void HideMissionEnd()

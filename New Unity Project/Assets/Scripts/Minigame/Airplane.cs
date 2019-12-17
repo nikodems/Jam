@@ -113,4 +113,35 @@ public class Airplane : MonoBehaviour
                 }
             }
     }
+
+    private void RotateDown()
+    {
+        if (this.gameObject.transform.eulerAngles.z - 360.0f > -45.0f || this.gameObject.transform.eulerAngles.z == 0.0f)
+        {
+            rotationZ -= 0.1f;
+
+            if (rotationZ >= -45.0f)
+            {
+                this.gameObject.transform.Rotate(new Vector3(0.0f, 0.0f, rotationZ));
+            }
+            else if (rotationZ < -45.0f)
+            {
+                rotationZ = -45.0f;
+            }
+        }
+
+        if (!this.gameObject.GetComponent<SpriteRenderer>().flipX)
+        {
+            if (this.gameObject.transform.eulerAngles.z < 45.0f)
+            {
+
+            }
+        }
+    }
+
+
+    public bool IsFlip()
+    {
+        return this.gameObject.GetComponent<SpriteRenderer>().flipX;
+    }
 }
