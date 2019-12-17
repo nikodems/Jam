@@ -45,11 +45,16 @@ public class GameController : MonoBehaviour
         {
             if(Input.GetKeyDown("space"))
             {
-                SceneManager.LoadSceneAsync("Game");
+                SceneManager.LoadSceneAsync("Map");
             }
         }
 
         if(gameOver)
+        {
+            ShowMissionEnd();
+        }
+
+        if(Input.GetKeyDown("escape"))
         {
             ShowMissionEnd();
         }

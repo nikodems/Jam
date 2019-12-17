@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tank : MonoBehaviour
 {
-    Vector3 velocity = new Vector3(-5.0f, 0.0f, 0.0f);
+    Vector3 velocity = new Vector3(-2.0f, 0.0f, 0.0f);
     GameController gameController;
 
     // Start is called before the first frame update

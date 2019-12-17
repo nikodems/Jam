@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ExhibitOne.unity
     guid: 7fe4d8610ca41f44db3bf97614dcbcf6
+  - enabled: 1
+    path: Assets/Scenes/Minigame.unity
+    guid: 0e10235d420551f4b8365a0a092a8041
+  - enabled: 1
+    path: Assets/Scenes/Museum.unity
+    guid: 5c1bccfea645b9e4b9a72d8da83eecd9
   m_configObjects: {}

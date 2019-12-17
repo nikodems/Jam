@@ -32,7 +32,7 @@ public class Map : MonoBehaviour
 
             if (hit.collider != null)
             {
-                SceneManager.LoadSceneAsync("ExhibitOne");
+                SceneManager.LoadSceneAsync("Museum");
             }
         }
     }

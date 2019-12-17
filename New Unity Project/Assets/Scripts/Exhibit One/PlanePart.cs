@@ -30,4 +30,9 @@ public class PlanePart : MonoBehaviour
     {
         textBox.SetActive(false);
     }
+
+    public bool IsTextBoxActive()
+    {
+        return textBox.activeSelf;
+    }
 }
